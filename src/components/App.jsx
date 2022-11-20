@@ -27,6 +27,15 @@ export class App extends Component {
     }))
   }
 
+  handleChange = (event) => {
+
+  }
+
+  handleSubmit = (ev) => {
+    console.log(ev.target.value);
+    this.setState()
+  }
+
   render() {
     const { contacts } = this.state
   
@@ -34,7 +43,7 @@ export class App extends Component {
     
     <div className={style.phonebook}>
         <h1>Phonebook</h1>
-        <form className={style.contacts} onSubmit={this.handleSubmit}>
+        <form className={style.contacts} onChange={this.handleSubmit}>
           <label className={style.label__header} htmlFor={this.nameInputId}>Name</label>
           <input
             className={style.label__input}
@@ -63,7 +72,7 @@ export class App extends Component {
         
         </form>
          <Contacts
-            title='Contacts'
+          title='Contacts'
           contacts={contacts}
           onDeliteContact = {this.deliteContact}
           />

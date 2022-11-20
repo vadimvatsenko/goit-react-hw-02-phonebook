@@ -8,6 +8,7 @@
     width: 500px;
     margin: 0 auto;
     margin-top: 20px;
+    overflow-y: auto;
 }
 .contacts__item + .contacts__item{
     margin-top: 10px;
@@ -22,7 +23,7 @@
 
 .contacts__button {
     display: inline-block;
-
+    z-index: 2;
     text-decoration: none;
     width: 140px;
     height: 45px;

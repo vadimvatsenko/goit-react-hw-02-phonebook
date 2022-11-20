@@ -1,7 +1,7 @@
 import style from "./contacts.module.css";
 
 export default function Contacts({ title, contacts, onDeliteContact }) {
-    console.log(contacts)
+
     return (
         <section className={style.contacts}>
             <h2>{title}</h2>
