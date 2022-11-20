@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid'
 import style from './all.module.css'
+import defaultContacts from './contacts/contacts.json'
 
 import Contacts from "./contacts";
 
@@ -14,30 +15,17 @@ export class App extends Component {
   numberInputId = nanoid();
 
   state = {
-  contacts: [
-    {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
-    {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
-    {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
-    {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
-  ],
+  contacts: defaultContacts,
   filter: '',
   name: '',
   number: ''
 }
   
-
- handleSubmit = evt => {
-    evt.preventDefault();
-    const form = evt.currentTarget;
-    const name = form.elements.name.value;
-    const number = form.elements.number.value;
-   console.log(name, number);
-   this.setState(prevState => ({
-    
-   }))
-    // this.props.onSubmit({ name, number });
-    form.reset();
-  };
+  deliteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }))
+  }
 
   render() {
     const { contacts } = this.state
@@ -70,13 +58,15 @@ export class App extends Component {
 
           <button className={style.phonebook__button} type="submit">Add contact</button>
           
-          <Contacts
-            title='Contacts'
-            contacts={contacts}
-          />
+         
           
         
         </form>
+         <Contacts
+            title='Contacts'
+          contacts={contacts}
+          onDeliteContact = {this.deliteContact}
+          />
       </div>
     );
   }
