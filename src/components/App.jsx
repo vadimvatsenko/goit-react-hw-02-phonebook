@@ -1,99 +1,61 @@
 import React, { Component } from "react";
-import Section from './section/section';
-import FeedbackOptions from "./feedbackOptions/FeedbackOptions";
-import Statistics from "./statistics/statistics";
-import Notification from "components/notification/notification";
-import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid'
+import style from './all.module.css'
+// import Section from './section/section';
+// import FeedbackOptions from "./feedbackOptions/FeedbackOptions";
+// import Statistics from "./statistics/statistics";
+// import Notification from "components/notification/notification";
+// import PropTypes from 'prop-types';
 
+// const id = nanoid();
 
 export class App extends Component {
-    static defaultProps = {
-        good: 0,
-        neutral: 0,
-        bad: 0,
-    }
-
-    static propTypes = {
-      good: PropTypes.number.isRequired,
-      neutral: PropTypes.number.isRequired,
-      bad: PropTypes.number.isRequired,
-    }
-
-    state = {
-        good: this.props.good,
-        neutral: this.props.neutral,
-        bad: this.props.bad,
+ state = {
+  contacts: [],
+  name: ''
   }
   
 
 
-    // goodIncrement = () => {
-    // this.setState(prevState => ({
-    //     good: prevState.good + 1,
-    // }));
-    // };
-    // neutralIncrement = () => {
-    // this.setState(prevState => ({
-    //     neutral: prevState.neutral + 1,
-    // }));
-    // };
-    // badIncrement = () => {
-    // this.setState(prevState => ({
-    //     bad: prevState.bad + 1,
-    // }));
-    // };
-  
-  onLeaveFeedback = (e) => {
-		const name = e.target.name;
-		this.setState((prevState) => ({
-			[name]: prevState[name] + 1
-		}));
-	};
-
-    countTotalFeedback = () => 
-         this.state.good + this.state.neutral + this.state.bad
-        
-    
-
-    countPositiveFeedbackPercentage = () =>
-        Number.parseInt(this.state.good / (this.state.good + this.state.neutral + this.state.bad) * 100)
-       
-    
-    
-
   render() {
-    const { good, neutral, bad } = this.state;
 
-    const objKey = Object.keys(this.state);
-  
+
+    return (
+      <div className={style.phonebook}>
+        <h1>Phonebook</h1>
+        <form className={style.contacts}>
+          <label className={ style.label__header} htmlFor="name">Name</label>
+          <input
+            className={style.label__input}
+            id="name"
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
+          <label className={ style.label__header} htmlFor="tel">Number</label>
+          <input
+            className={style.label__input}
+            id='tel'
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
+
+          <button className={style.phonebook__button} type="submit">Add contact</button>
+          
+          <div>
+            <h2>Contacts</h2>
+            
+          </div>
+          
         
-      return (
-        <Section
-          title={'statictics form'}
-          subtitle={'Please leave feedback'}>
-          {/* <Buttons
-            goodIncrement={this.goodIncrement}
-            neutralIncrement={this.neutralIncrement}
-            badIncrement={this.badIncrement} /> */}
-          <FeedbackOptions options={objKey} onLeaveFeedback={this.onLeaveFeedback} />
-
-
-          {this.countTotalFeedback() ?
-            <Statistics
-              title='Statistics'
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              total={this.countTotalFeedback()}
-              percentage={this.countPositiveFeedbackPercentage()}
-            /> :
-                
-            <Notification message="There is no feedback" />
-          }
-               
-
-        </Section>
-      );
+        </form>
+      </div>
+    );
   }
 }
 
