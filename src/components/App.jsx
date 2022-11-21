@@ -6,7 +6,8 @@ import defaultContacts from './contacts/contacts.json';
 
 import Section from "./section";
 import Contacts from "./contacts";
-import Form from "./form/form"
+import Form from "./form";
+import Radio from './radioButton';
 
 export class App extends Component {
   state = {
@@ -38,13 +39,12 @@ export class App extends Component {
         title='Phonebook'>
         <Form
           onSubmitHandle={this.formSubmitHandle} />
-        
-        
-         <Contacts
+        <Contacts
           title='Contacts'
           contacts={contacts}
           onDeliteContact = {this.deliteContact}
-          />
+        />
+        <Radio/>
       </Section>
     );
   }
