@@ -3,7 +3,7 @@ import style from "./contacts.module.css";
 export default function Contacts({ title, contacts, onDeliteContact }) {
 
     return (
-        <section className={style.contacts}>
+        <div className={style.contacts}>
             <h2>{title}</h2>
             <ul className={style.contacts__list}>
                 {contacts.map(({ id, name, number }) => (
@@ -14,7 +14,7 @@ export default function Contacts({ title, contacts, onDeliteContact }) {
                     </li>
                 ))}
             </ul>
-        </section>
+        </div>
         
     );
 }

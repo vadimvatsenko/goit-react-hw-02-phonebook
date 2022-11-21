@@ -23,7 +23,7 @@ export default class Form extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.onSubmitHandle(this.state);
-        this.resetForm()
+        this.resetForm();
     };
 
     resetForm = () => {
