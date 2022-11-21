@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-
-// import style from './all.module.css'
 import defaultContacts from './contacts/contacts.json';
-
 import Section from "./section";
 import Contacts from "./contacts";
 import Form from "./form";
-import Radio from './radioButton';
+// import Radio from './radioButton';
 
 export class App extends Component {
   state = {
@@ -27,10 +24,6 @@ export class App extends Component {
     }))
   }
 
-
-
-
-
   render() {
     const { contacts } = this.state
   
@@ -44,7 +37,7 @@ export class App extends Component {
           contacts={contacts}
           onDeliteContact = {this.deliteContact}
         />
-        <Radio/>
+        {/* <Radio/> */}
       </Section>
     );
   }

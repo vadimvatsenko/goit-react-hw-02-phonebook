@@ -10,7 +10,12 @@ export default function Contacts({ title, contacts, onDeliteContact }) {
                     <li key={id} className={style.contacts__item}>
                         <p>{name}</p>
                         <p>{number}</p>
-                        <button className={style.contacts__button} type='button' onClick={() => onDeliteContact(id)}>Remove</button>
+                        <button
+                            className={style.contacts__button}
+                            type='button'
+                            onClick={() => onDeliteContact(id)}>
+                            Remove
+                        </button>
                     </li>
                 ))}
             </ul>

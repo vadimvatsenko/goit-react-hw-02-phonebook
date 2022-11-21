@@ -12,6 +12,7 @@ export default class Form extends Component {
     number: ''
     }
 
+
 //изминения state при input
     handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,6 +23,7 @@ export default class Form extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        console.log(this.state)
         this.props.onSubmitHandle(this.state);
         this.resetForm();
     };
