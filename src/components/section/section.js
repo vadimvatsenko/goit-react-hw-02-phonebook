@@ -1,4 +1,4 @@
-import style from './section.module.css'
+import style from './section.module.scss'
 
 export default function Section({ title, children }) {
     return (

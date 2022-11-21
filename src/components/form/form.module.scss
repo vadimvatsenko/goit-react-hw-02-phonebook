@@ -1,0 +1,47 @@
+@import 'styles/main.scss';
+
+.form__section {
+    width: 500px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: $secondBgColor;
+    border-radius: 10px;
+
+    padding: 40px;
+}
+
+.label__header {
+    font-size: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.label__input+.label__input {
+    margin-top: 20px;
+}
+
+.label__input {
+    height: 30px;
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 10px;
+
+    cursor: pointer;
+}
+
+.phonebook__button {
+    @extend %button;
+    margin: 0 auto;
+    margin-top: 20px;
+
+}
+
+.phonebook__button:hover {
+    @extend %button-hover;
+    background-color: $btnFormBgHoverColor;
+    box-shadow: $btnFormHoverBoxShadow ;
+
+}

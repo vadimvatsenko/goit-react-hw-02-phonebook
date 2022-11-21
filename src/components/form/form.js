@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import style from './form.module.css'
+import style from './form.module.scss'
 import { nanoid } from 'nanoid'
 
 // нужен state только для перерисовки input, не для submit
