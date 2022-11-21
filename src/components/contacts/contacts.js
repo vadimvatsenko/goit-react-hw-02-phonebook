@@ -1,4 +1,4 @@
-import style from "./contacts.module.css";
+import style from "./contacts.module.scss";
 
 export default function Contacts({ title, contacts, onDeliteContact }) {
 

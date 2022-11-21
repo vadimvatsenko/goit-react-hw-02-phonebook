@@ -65,7 +65,9 @@ export default class Radio extends Component{
                     />
                 </label>
                 <button
+                    disabled={!this.state.deal}
                     style={{ backgroundColor: 'green', marginLeft: '10px' }}
+
                     type='submit'>Send
                 </button>
         </form>
