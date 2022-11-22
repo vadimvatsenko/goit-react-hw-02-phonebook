@@ -24,7 +24,7 @@ export default class Form extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         console.log(this.state)
-        this.props.onSubmitHandle(this.state);
+        this.props.onSubmitHandle(this.state);//проп
         this.resetForm();
     };
 

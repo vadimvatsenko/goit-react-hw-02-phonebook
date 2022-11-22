@@ -14,6 +14,10 @@ export class App extends Component {
   // number: ''
   }
 
+  // addContact = ({ name, number }) => {
+  //   console.log(name, number )
+  // }
+
   formSubmitHandle = (data) => {
     console.log(data)
   }
@@ -28,10 +32,10 @@ export class App extends Component {
     const { contacts } = this.state
   
     return (
-      <Section
-        title='Phonebook'>
+      <Section title='Phonebook'>
         <Form
           onSubmitHandle={this.formSubmitHandle} />
+
         <Contacts
           title='Contacts'
           contacts={contacts}
