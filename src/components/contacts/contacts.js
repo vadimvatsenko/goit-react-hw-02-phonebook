@@ -1,10 +1,12 @@
 import style from "./contacts.module.scss";
 
-export default function Contacts({ title, contacts, onDeliteContact }) {
+export default function Contacts({ title, contacts, onDeliteContact, children }) {
 
     return (
+       
         <div className={style.contacts}>
             <h2>{title}</h2>
+            {children}
             <ul className={style.contacts__list}>
                 {contacts.map(({ id, name, number }) => (
                     <li key={id} className={style.contacts__item}>
@@ -19,6 +21,7 @@ export default function Contacts({ title, contacts, onDeliteContact }) {
                     </li>
                 ))}
             </ul>
+             
         </div>
         
     );

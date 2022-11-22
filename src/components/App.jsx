@@ -68,13 +68,13 @@ export class App extends Component {
       <Section title='Phonebook'>
         <Form
           onSubmitHandle={this.formSubmitHandle} />
-        <Filter value={ filter} onChange={this.changeFilter} />
+        
         <Contacts
           title='Contacts'
-          // contacts={contacts}
           contacts={visibleContacts}
-          onDeliteContact = {this.deliteContact}
-        />
+          onDeliteContact={this.deliteContact}>
+          <Filter value={ filter} onChange={this.changeFilter} />
+          </Contacts>
         {/* <Radio/> */}
       </Section>
     );
