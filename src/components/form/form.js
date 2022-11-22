@@ -21,14 +21,7 @@ export default class Form extends Component {
         });
     };
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(this.state)
-        this.props.onSubmitHandle(this.state);//проп
-        this.resetForm();
-    };
-
-    resetForm = () => {
+        resetForm = () => {
         this.setState(
             {
                 name: '',
@@ -36,6 +29,15 @@ export default class Form extends Component {
             }
         );
     }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state)
+        this.props.onSubmitHandle(this.state);//проп
+        this.resetForm();
+    };
+
+
 
     render() {
         return (

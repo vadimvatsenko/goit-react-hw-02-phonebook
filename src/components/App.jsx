@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-import defaultContacts from './contacts/contacts.json';
+// import defaultContacts from './contacts/contacts.json';
 import Section from "./section";
 import Contacts from "./contacts";
 import Form from "./form";
@@ -10,7 +10,8 @@ import { nanoid } from 'nanoid';
 
 export class App extends Component {
   state = {
-  contacts: defaultContacts,
+  // contacts: defaultContacts,
+  contacts: [],
   filter: '',
   // name: '',
   // number: ''
