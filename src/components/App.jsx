@@ -61,8 +61,11 @@ export class App extends Component {
   };
 
   render() {
-    const { filter } = this.state;
-    const visibleContacts = this.getVisibleContatcts() 
+    const { contacts, filter } = this.state;
+    const visibleContacts = this.getVisibleContatcts();
+
+    console.log(visibleContacts);
+    
 
   
     return (
@@ -74,8 +77,13 @@ export class App extends Component {
           title='Contacts'
           contacts={visibleContacts}
           onDeliteContact={this.deliteContact}>
-          <Filter value={ filter} onChange={this.changeFilter} />
-          </Contacts>
+          {contacts === [] ?
+            <div>Emty</div> :
+            <Filter value={filter} onChange={this.changeFilter} />}
+          
+          
+        </Contacts>
+        
         {/* <Radio/> */}
       </Section>
     );

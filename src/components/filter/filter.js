@@ -8,7 +8,7 @@ export default function Filter({value, onChange}) {
     return (
         <form className={style.filter__form}> 
             <label htmlFor={idForFilter} className={style.filter__title}>Find contact by name</label>
-            <input id={ idForFilter} type="text" name="filter" value={value} onChange={onChange } />
+            <input className={style.filter__input } id={ idForFilter} type="text" name="filter" value={value} onChange={onChange } />
         </form>
     )
 }

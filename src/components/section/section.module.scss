@@ -3,13 +3,19 @@
 .phonebook {
     text-align: center;
     padding: 20px;
+    height: 90vh;
 
     width: 600px;
     height: auto;
     background-color: $mainBgColor;
     margin: 0 auto;
     margin-top: 10vh;
+    margin-bottom: 10vh;
 
     border-radius: 10px;
     box-shadow: $mainBoxShadow;
+}
+
+h1 {
+    color: $mainTextColor;
 }
