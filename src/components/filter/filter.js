@@ -2,6 +2,7 @@ import React from "react";
 import style from './filter.module.scss';
 import { nanoid } from 'nanoid';
 
+
 const idForFilter = nanoid();
 
 export default function Filter({value, onChange}) {
