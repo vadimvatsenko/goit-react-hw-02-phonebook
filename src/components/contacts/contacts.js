@@ -1,7 +1,7 @@
 import style from "./contacts.module.scss";
 
 export default function Contacts({ title, contacts, onDeliteContact, children }) {
-
+    console.log(contacts)
     return (
        
         <div className={style.contacts}>

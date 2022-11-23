@@ -34,7 +34,7 @@ export default class Form extends Component {
         e.preventDefault();
         this.props.onSubmitHandle(this.state);//проп
         this.resetForm();
-        console.log(e);
+
     };
 
 

@@ -9,6 +9,8 @@ import Filter from './filter'
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio'
 
+import style from "./contacts/contacts.module.scss";
+
 export class App extends Component {
   state = {
   // contacts: defaultContacts,
@@ -70,24 +72,29 @@ export class App extends Component {
     const { contacts, filter } = this.state;
     // const { filter } = this.state;
     const visibleContacts = this.getVisibleContatcts();
+    console.log(visibleContacts)
  
     return (
       <Section title='Phonebook'>
         <Form
           onSubmitHandle={this.formSubmitHandle} />
         
-        <Contacts
+        {contacts.length === 0 ? (
+          <div className={style.contacts__emty}>
+            <h2>Missing contacts</h2>
+          </div>) : (
+          <Contacts
           title='Contacts'
          
           contacts={visibleContacts}
           onDeliteContact={this.deliteContact}>
           
           <Filter value={filter} onChange={this.changeFilter} />
-           {contacts.length === 0 ? (
-            <div>Emty</div>) : <div>Yes</div>
-          }
+           
           
-        </Contacts>
+        </Contacts>)
+          }
+        
         
         {/* <Radio/> */}
       </Section>

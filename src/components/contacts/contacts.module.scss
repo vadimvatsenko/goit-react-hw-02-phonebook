@@ -1,6 +1,6 @@
 @import 'styles/main.scss';
 
-.contacts {
+%contacts-style {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -16,6 +16,16 @@
     flex-grow: 1;
 
 }
+
+.contacts {
+    @extend %contacts-style
+}
+
+.contacts__emty {
+    @extend %contacts-style;
+    background-image: repeating-linear-gradient($secondBgColor 0px, $secondBgColor 24px, $mainTextColor 25px);
+}
+
 
 .contacts__wrap {
     display: flex;
@@ -38,6 +48,7 @@
 }
 
 .contacts__item {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,9 +57,15 @@
     padding: 8px;
     background-color: $mainBgColor;
 
-    box-shadow: $contactsBoxShsdow;
+
     color: $mainTextColor;
+    transition: .3s $timing-function
 }
+
+.contacts__item:hover {
+    box-shadow: $contactsBoxShsdow;
+}
+
 
 .contacts__button {
     @extend %button
