@@ -5,8 +5,11 @@ export default function Contacts({ title, contacts, onDeliteContact, children })
     return (
        
         <div className={style.contacts}>
+            
             <h2>{title}</h2>
             {children}
+            <div className={style.contacts__wrap}>
+           
             <ul className={style.contacts__list}>
                 {contacts.map(({ id, name, number }) => (
                     <li key={id} className={style.contacts__item}>
@@ -20,9 +23,11 @@ export default function Contacts({ title, contacts, onDeliteContact, children })
                         </button>
                     </li>
                 ))}
-            </ul>
+                </ul>
+                 </div>
+                </div>
              
-        </div>
+        
         
     );
 }

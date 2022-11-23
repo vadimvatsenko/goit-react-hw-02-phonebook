@@ -1,25 +1,24 @@
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-import defaultContacts from './contacts/contacts.json';
+// import defaultContacts from './contacts/contacts.json';
 import Section from "./section";
 import Contacts from "./contacts";
 import Form from "./form";
 import Filter from './filter'
 // import Radio from './radioButton';
 import { nanoid } from 'nanoid';
+import { Notify } from 'notiflix/build/notiflix-notify-aio'
 
 export class App extends Component {
   state = {
-  contacts: defaultContacts,
-  // contacts: [],
+  // contacts: defaultContacts,
+  contacts: [],
   filter: '',
   // name: '',
   // number: ''
   }
 
-  // addContact = ({ name, number }) => {
-  //   console.log(name, number )
-  // }
+
 
   formSubmitHandle = ({ name, number }) => {
     const newContact = {
@@ -27,14 +26,22 @@ export class App extends Component {
       name,
       number,
     };
-    
+
+    const getAllContactsNames = this.state.contacts.map(cont => cont.name);
+
+    if (getAllContactsNames.includes(name)) {
+      return Notify.warning(`${name} is already in contacts`);
+    }
+  
     // this.setState(prevState => ({
     //   contacts: [newContact, ...prevState.contacts]
     // }))
     this.setState(({ contacts }) => ({
       contacts: [newContact, ...contacts]
     }));
+    
   };
+
 
  
 
@@ -60,14 +67,10 @@ export class App extends Component {
   };
 
   render() {
-    // const { contacts, filter } = this.state;
-    const { filter } = this.state;
+    const { contacts, filter } = this.state;
+    // const { filter } = this.state;
     const visibleContacts = this.getVisibleContatcts();
-
-    console.log(visibleContacts);
-    
-
-  
+ 
     return (
       <Section title='Phonebook'>
         <Form
@@ -75,11 +78,14 @@ export class App extends Component {
         
         <Contacts
           title='Contacts'
+         
           contacts={visibleContacts}
           onDeliteContact={this.deliteContact}>
           
           <Filter value={filter} onChange={this.changeFilter} />
-          
+           {contacts.length === 0 ? (
+            <div>Emty</div>) : <div>Yes</div>
+          }
           
         </Contacts>
         

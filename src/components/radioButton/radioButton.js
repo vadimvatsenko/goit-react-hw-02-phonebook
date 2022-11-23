@@ -15,8 +15,6 @@ export default class Radio extends Component{
     };
 
     handleDealChange = (e) => {
-        console.log(e.target.value);
-        console.log(e.currentTarget.checked)
         this.setState({
             deal: e.currentTarget.checked
         });

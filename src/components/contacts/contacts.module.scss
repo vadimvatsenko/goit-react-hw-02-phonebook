@@ -4,7 +4,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    // align-content: start;
 
     color: $mainTextColor;
     margin-top: 20px;
@@ -13,23 +12,25 @@
     padding: 20px 40px;
 
     box-shadow: $secondBoxShadow;
-    // height: 100vh // height: 100%;
+
     flex-grow: 1;
-    // height: 100%;
+
+}
+
+.contacts__wrap {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
 
 }
 
 .contacts__list {
-    width: 500px;
-    margin: 0 auto;
-    margin-top: 20px;
+    height: 100px;
 
-    height: 120px;
-
-    // flex-grow: 1;
-
-    outline: 1px solid red;
-    overflow-y: auto;
 }
 
 .contacts__item+.contacts__item {
