@@ -24,15 +24,14 @@ export default class Form extends Component {
         resetForm = () => {
         this.setState(
             {
-                name: '',
-                number: ''
+                name: "",
+                number: ""
             }
         );
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state)
         this.props.onSubmitHandle(this.state);//проп
         this.resetForm();
     };

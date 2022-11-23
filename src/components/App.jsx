@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-// import defaultContacts from './contacts/contacts.json';
+import defaultContacts from './contacts/contacts.json';
 import Section from "./section";
 import Contacts from "./contacts";
 import Form from "./form";
@@ -10,8 +10,8 @@ import { nanoid } from 'nanoid';
 
 export class App extends Component {
   state = {
-  // contacts: defaultContacts,
-  contacts: [],
+  contacts: defaultContacts,
+  // contacts: [],
   filter: '',
   // name: '',
   // number: ''
@@ -22,13 +22,12 @@ export class App extends Component {
   // }
 
   formSubmitHandle = ({ name, number }) => {
-    console.log({ name, number });
-
     const newContact = {
       id: nanoid(),
       name,
       number,
     };
+    
     // this.setState(prevState => ({
     //   contacts: [newContact, ...prevState.contacts]
     // }))
@@ -37,7 +36,7 @@ export class App extends Component {
     }));
   };
 
-  
+ 
 
   changeFilter = (e) => {
     this.setState({
@@ -61,7 +60,8 @@ export class App extends Component {
   };
 
   render() {
-    const { contacts, filter } = this.state;
+    // const { contacts, filter } = this.state;
+    const { filter } = this.state;
     const visibleContacts = this.getVisibleContatcts();
 
     console.log(visibleContacts);
@@ -77,9 +77,8 @@ export class App extends Component {
           title='Contacts'
           contacts={visibleContacts}
           onDeliteContact={this.deliteContact}>
-          {contacts === [] ?
-            <div>Emty</div> :
-            <Filter value={filter} onChange={this.changeFilter} />}
+          
+          <Filter value={filter} onChange={this.changeFilter} />
           
           
         </Contacts>
