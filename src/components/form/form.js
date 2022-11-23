@@ -1,6 +1,8 @@
+//DONE
 import React, { Component } from "react";
 import style from './form.module.scss'
-import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid';
+import PropTypes from "prop-types";
 
 // нужен state только для перерисовки input, не для submit
 export default class Form extends Component {
@@ -74,3 +76,8 @@ export default class Form extends Component {
         );  
     };
 }
+
+Form.propTypes = {
+  onSubmitHandle: PropTypes.func.isRequired,
+  
+};

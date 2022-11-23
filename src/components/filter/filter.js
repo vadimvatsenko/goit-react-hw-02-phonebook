@@ -1,6 +1,8 @@
+//DONE
 import React from "react";
 import style from './filter.module.scss';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 
 const idForFilter = nanoid();
@@ -12,4 +14,9 @@ export default function Filter({value, onChange}) {
             <input className={style.filter__input } id={ idForFilter} type="text" name="filter" value={value} onChange={onChange } />
         </form>
     )
+}
+
+Filter.propTypes = {
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
 }

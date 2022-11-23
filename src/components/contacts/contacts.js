@@ -37,6 +37,7 @@ export default function Contacts({ title, contacts, onDeliteContact, children })
 Contacts.protoType = {
     title: PropTypes.string.isRequired,
     onDeliteContact: PropTypes.func.isRequired,
+    //или приходит массив из объектов
     contacts: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string,
         name: PropTypes.string,
